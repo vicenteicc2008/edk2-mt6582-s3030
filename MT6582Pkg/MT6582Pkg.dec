@@ -1,0 +1,44 @@
+#/** @file
+# Mediatek SoC package.
+#
+# Copyright (c) 2021, BinSys. All rights reserved.<BR>
+#
+#**/
+
+[Defines]
+  DEC_SPECIFICATION              = 0x00010005
+  PACKAGE_NAME                   = MT6582Pkg
+  PACKAGE_GUID                   = E5A10ED4-E62D-49B0-A437-312EB1903A38
+  PACKAGE_VERSION                = 0.1
+
+################################################################################
+#
+# Include Section - list of Include Paths that are provided by this package.
+#                   Comments are used for Keywords and Module Types.
+#
+# Supported Module Types:
+#  BASE SEC PEI_CORE PEIM DXE_CORE DXE_DRIVER DXE_RUNTIME_DRIVER DXE_SMM_DRIVER DXE_SAL_DRIVER UEFI_DRIVER UEFI_APPLICATION
+#
+################################################################################
+[Includes.common]
+  Include                        # Root include for the package
+
+[LibraryClasses]
+
+
+[Guids.common]
+  #{EB2A954F-A210-4B8E-B271-3C3E112AD2A0}
+  gMT6582PkgTokenSpaceGuid    =  { 0xeb2a954f, 0xa210, 0x4b8e, { 0xb2, 0x71, 0x3c, 0x3e, 0x11, 0x2a, 0xd2, 0xa0 } }
+
+[Protocols]
+  #{F0843787-2270-4E68-BD83-45F38A878826}
+  gMT6582PM8921ProtocolGuid   =  { 0xf0843787, 0x2270, 0x4e68, { 0xbd, 0x83, 0x45, 0xf3, 0x8a, 0x87, 0x88, 0x26 } }
+  
+[PcdsFeatureFlag.common]
+
+[PcdsFixedAtBuild.common]
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugGsbiID                    |      0x05|UINT8 |0x00000000
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugGsbiBaseAddress           |0x16400000|UINT32|0x00000001
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugUartDmBaseAddress         |0x16440000|UINT32|0x00000002
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugRartDmClockRxTxBitRate    |0x000000ff|UINT32|0x00000003
+  
