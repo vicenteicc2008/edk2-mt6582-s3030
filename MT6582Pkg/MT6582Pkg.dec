@@ -29,6 +29,10 @@
 [Guids.common]
   #{EB2A954F-A210-4B8E-B271-3C3E112AD2A0}
   gMT6582PkgTokenSpaceGuid    =  { 0xeb2a954f, 0xa210, 0x4b8e, { 0xb2, 0x71, 0x3c, 0x3e, 0x11, 0x2a, 0xd2, 0xa0 } }
+  # {D2624F1B-7929-45B6-8E3B-4B4C52F6258A}
+  gMsm8960TokenSpaceGuid    =  { 0xd2624f1b, 0x7929, 0x45b6, { 0x8e, 0x3b, 0x4b, 0x4c, 0x52, 0xf6, 0x25, 0x8a } }
+
+  gArmTokenSpaceGuid       = { 0xBB11ECFE, 0x820F, 0x4968, { 0xBB, 0xA6, 0xF7, 0x6A, 0xFE, 0x30, 0x25, 0x96 } }
 
 [Protocols]
   #{F0843787-2270-4E68-BD83-45F38A878826}
@@ -41,4 +45,4 @@
   gMT6582PkgTokenSpaceGuid.PcdQcomDebugGsbiBaseAddress           |0x16400000|UINT32|0x00000001
   gMT6582PkgTokenSpaceGuid.PcdQcomDebugUartDmBaseAddress         |0x16440000|UINT32|0x00000002
   gMT6582PkgTokenSpaceGuid.PcdQcomDebugRartDmClockRxTxBitRate    |0x000000ff|UINT32|0x00000003
-  
+  gMT6582PkgTokenSpaceGuid.PcdMsm8960DisplayBase                 |0x89000000|UINT32|0x00000001
