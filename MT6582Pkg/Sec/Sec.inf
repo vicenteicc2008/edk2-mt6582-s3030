@@ -1,0 +1,81 @@
+
+#/** @file
+#  SEC - Reset vector code that jumps to C and loads DXE core
+#
+#  Copyright (c) 2008, Apple Inc. All rights reserved.<BR>
+#  This program and the accompanying materials
+#  are licensed and made available under the terms and conditions of the BSD License
+#  which accompanies this distribution.  The full text of the license may be found at
+#  http://opensource.org/licenses/bsd-license.php
+#
+#  THE PROGRAM IS DISTRIBUTED UNDER THE BSD LICENSE ON AN "AS IS" BASIS,
+#  WITHOUT WARRANTIES OR REPRESENTATIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED.
+#
+#**/
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = MT6582Sec
+  FILE_GUID                      = a2ed961c-e6ed-4fbd-af61-f8eed105bac7
+  MODULE_TYPE                    = SEC
+  VERSION_STRING                 = 1.0
+
+
+[Sources.ARM]
+  Arm/ModuleEntryPoint.S   | GCC
+  Arm/ModuleEntryPoint.asm | RVCT
+  
+[Sources.ARM]
+  Sec.c
+  Cache.c
+  PadConfiguration.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  MdeModulePkg/MdeModulePkg.dec
+  
+  ArmPkg/ArmPkg.dec
+  EmbeddedPkg/EmbeddedPkg.dec
+  IntelFrameworkModulePkg/IntelFrameworkModulePkg.dec
+  MT6582Pkg/MT6582Pkg.dec
+
+[LibraryClasses]
+  BaseLib
+  DebugLib
+  ArmLib
+  IoLib
+  ExtractGuidedSectionLib
+  LzmaDecompressLib
+  #DebugAgentLib
+  MemoryAllocationLib
+  PrePiHobListPointerLib
+  MsmSharedLib
+  MsmClockLib
+  #TimerLib
+  MsmTargetLib
+  SerialPortLib
+
+[FeaturePcd]
+  gEmbeddedTokenSpaceGuid.PcdCacheEnable
+
+[FixedPcd]
+  
+  gEmbeddedTokenSpaceGuid.PcdMemoryBase
+  gEmbeddedTokenSpaceGuid.PcdMemorySize
+  
+  gEmbeddedTokenSpaceGuid.PcdEmbeddedFdBaseAddress
+  gEmbeddedTokenSpaceGuid.PcdEmbeddedFdSize
+  
+  gEmbeddedTokenSpaceGuid.PcdFlashFvMainBase
+  gEmbeddedTokenSpaceGuid.PcdFlashFvMainSize
+  
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress
+  
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase
+  
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugGsbiID
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugGsbiBaseAddress
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugUartDmBaseAddress
+  gMT6582PkgTokenSpaceGuid.PcdQcomDebugRartDmClockRxTxBitRate
+
